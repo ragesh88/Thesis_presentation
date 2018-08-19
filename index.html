@@ -1102,7 +1102,7 @@
 				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
 
 					<div class="heading_box"><h3>Metric Map Construction using a Stochastic Robotic Swarm Leveraging Received Signal Strength<sup>*</sup></h3></div>
-					<p align="left" style="font-size: 15px"><sup>*</sup>Ragesh K. Ramachandran and Spring Berman. Automated Construction of Metric Maps using a Stochastic Robotic Swarm Leveraging Received Signal Strength. Submitted to IEEE Robotics and Automation Letters, 2018.</p>					
+					<p align="left" style="font-size: 15px"><sup>*</sup>Ragesh K. Ramachandran and Spring Berman. Automated Construction of Metric Maps using a Stochastic Robotic Swarm Leveraging Received Signal Strength. In revision for IEEE Transactions on Robotics, 2018.</p>					
 				</section>
 
 
@@ -1283,6 +1283,107 @@
 					<div style="position: relative; top: 470px"><p>50 trails for each number of robots.</p></div>
 					</div>				
 				</section>
+
+
+				<!-- TRO 2018 ************* -->
+
+				<!-- Title -->
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+
+					<div class="heading_box"><h3>Information correlated L&eacutevy walk exploration and distributed mapping using a swarm of robots<sup>*</sup></h3></div>
+					<p align="left" style="font-size: 15px"><sup>*</sup>Ragesh K. Ramachandran, Zahi Kakish, and Spring Berman. Information correlated l&eacutevy walk exploration and distributed mapping using a swarm of robots. In preparation for IEEE Transactions on Robotics, 2018.</p>					
+				</section>
+
+				<!-- Problem Statement -->
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<div style="position: absolute; width: 960px; height: 450px; left: 0px; font-size: 30px;"> 
+						<h3> Problem Statement</h3>
+					<p> 
+				    We consider the problem of distributed mapping of a bounded, unknown, 2D environment using a swarm of N robots with localization capabilities.
+					</p>
+					<p>
+						We also formulate an information theoretic approach for exploring an unknown environment using the robotic swarm.
+					</p>
+					<aside class="notes">
+						Localization is assumed here.
+						
+					</aside>
+					</div>	
+				</section>
+
+				<!-- Information theoretic exploration  -->
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<div style="font-size: 30px;"> 
+					<h3>Information correlated L&eacutevy walk exploration</h3>
+					<ul>
+						<li><p class="fragment fade-up">An exploration strategy which combines information theoretic ideas with L&eacutevy walks </p></li>
+						<li><p class="fragment fade-up">Rather than moving in random directions as in L&eacutevy walk direct the robots in direction with maximum information gain.</p></li>
+						<li><p class="fragment fade-up">We use <span style="color: #129cea; font-style: italic;">Mutual information</span> between the distance measurement and estimated map as the metric to measure information gain.</p></li>
+					</ul>
+					<aside class="notes">
+						Move the robots to unexplored regions of the domain.
+						
+					</aside>
+					</div>
+				</section>
+
+				<!-- Mutual information based direction -->
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<h3>Mutual information based direction</h3>
+					<p>At time $\tau$ robot $R^i$ decides on its velocity $\mathbf{v}^i_\tau$ which it would follow for a time interval $T^i_\tau$, by solving the following optimization problem:</p>
+					$$^{*}\mathbf{V}^i_{\mathbf{t}(i)} = \underset{\left \|\mathbf{v}^i_\tau \right \|=s^i, \angle \mathbf{v}^i_\tau \in[-\pi, \pi]}{arg\ \max} \frac{\mathbf{I}[\mathbf{M^i}; \mathbf{Z^i_{\mathbf{t}(i)}}\ |\ \mathbf{X^i_{\mathbf{t}(i)}}]}{C(\mathbf{V^i}_{\mathbf{t}(i)})}$$
+					<aside class="notes">
+						$C(\mathbf{V^i}_{\mathbf{t}(i)})$ to penalize the robot from deviating largely from its current heading.
+						Explain the terms.
+					</aside>
+				</section>
+
+				<!-- Mutual information computation for a single laser beam -->
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<h3>Mutual information computation for a single laser beam</h3>
+					$$\mathbf{I}[\mathbf{c}^{i,a}; z^{i,a}_{\tau}] = -\int_{ z^{i,a}_{\tau}}\mathbb{P}(z)\log( \mathbb{P}(z)) dz + \mathbf{K}$$
+					$\mathbf{c}^{i,a}$ is the set of grid cells intersected by the beam $z^{i,a}_{\tau}$. The constant $\mathbf{K}$ evaluates to $-\log(\sqrt{2\pi}\sigma) -0.5$. $\mathbb{P}(z)$ is based on the range sensor model.
+				</section>
+
+
+				<!-- Distributed mapping -->
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<h3>Distributed mapping</h3>
+					<div> 
+					<ul>
+						<li><p>The robots explore the unknown domain using our exploration strategy.</p></li>
+						<li><p class="fragment">Simultaneously, each robot updates its occupancy grid map based on its laser range sensor measurements.</p></li>
+						<li><p class="fragment"> The robots' also update their map based on the map information from their neighbors.</p></li>											
+					</ul>
+					</div>
+				</section>
+
+				<!-- Consensus Protocol -->
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<h3>Consensus Protocol</h3>
+					$$ \mathbb{P}_{m^i_j}(k + 1) = \prod_{\hat{n} \in \mathbb{N}^i_{k} \cup i}\left( \mathbb{P}_{m^{\hat{n}}_j}(k) \right)^{a_{i,\hat{n}}(k)} \times u_m(m^i_j, \mathbf{x}^i_k,\mathbf{z}^i_k )$$
+					$\mathbb{P}_{m^{\hat{n}}_j}(k) $ is occupancy probability of grid cell $m^i_j$. 
+					$\mathbb{N}^i_{k}$ neighbors of robot $i$ at time step $k$.
+					$a_{i,\hat{n}}(k)$ weights for the protocol
+
+				</section>
+
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<h3>Convergence to a common global map</h3>
+					<div class="center-justified" style="font-size: 30px;"> 
+						<p><em>Theorem:</em> If each robot updates its occupancy grid according to the previous equation then under certain assumptions yeilds</p>
+						$$\lim_{k \rightarrow \infty} \mathbb{P}_{m^i_j}[k] =  <\mathbb{P}_{m_j}[0]>_{gm} \cdot \prod_{d \in \mathbf{d}} <\mathbf{u}_j[d]>_{gm}$$
+						Where $<\cdot>_{gm}$ is the geometric mean of the elements in a vector. $\mathbf{u}_j[d]$ is a vector of updates on $m^i_j$ based on all the measurements at time step $d$.
+						
+					</div>
+				</section>	
+
+
+
+
+
+
+
 
 
 
@@ -1599,18 +1700,18 @@
 				</section>
 
 
-				<!-- Ongoing Work -->
+				<!-- Future Work -->
 
 				<!-- Title -->
-				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+				<!-- <section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
 
-					<h3>Ongoing work</h3>
+					<h3>Future work</h3>
 					
-				</section>
+				</section> -->
 
 
 				<!-- Experimental Validation of Reaction-Based Mapping with Nanoparticle Swarms -->
-				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+				<!-- <section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
 					<h3>Experimental Validation of Reaction-Based Mapping with Nanoparticle Swarms</h3>
 					<div style="position: absolute; width: 960px; height: 450px; left: 0px; font-size: 25px;"> 
 					<ul>
@@ -1620,6 +1721,21 @@
 						<li><p class="fragment">The number of “active” nanoparticles over time will need to be counted using image processing software</p></li>						
 					</ul>
 					</div>					
+				</section> -->
+
+				<!-- Future work-->
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<h3>Future work</h3>
+					<ul>
+						<li><p>Experimental Validation of Reaction-Based Mapping with Nanoparticle Swarms</p></li>
+						<li><p>Extending the network theory work for network topology estimation using ideas from information geometry.</p></li>
+						<li><p class="fragment">Distributed Multi Target Tracking based on random finite sets.</p></li>
+					</ul>
+					<aside class="notes">
+						The space of Laplacians form a semi-group. The search the space w.r.t a reasonable objective function based on data.						
+
+					</aside>					
+
 				</section>
 
 
@@ -1642,7 +1758,7 @@
 
 
 				<!-- Experimental Validation of metric mapping-->
-				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+				<!-- <section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
 					<h3>Experimental Validation of mapping strategy using our robotic platform</h3>
 					<ul>
 						<li><p>We are experimentally validate the received signal strength mapping strategy.</p></li>
@@ -1656,33 +1772,23 @@
 
 					</aside>					
 
-				</section>
-
-
-				<!-- Future work-->
-				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
-					<h3>Future work</h3>
-					<ul>
-						<li><p>Extending the network theory work for network topology estimation using ideas from information geometry.</p></li>
-						<li><p class="fragment">Distributed Multi Target Tracking based on random finite sets.</p></li>
-					</ul>
-					<aside class="notes">
-						The space of Laplacians form a semi-group. The search the space w.r.t a reasonable objective function based on data.						
-
-					</aside>					
-
-				</section>
+				</section> -->
 
 
 
 				<!-- ENDING SLIDE-->
-				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>		
+				<!-- <section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>		
 					<h4>THANK YOU</h4>			
 					<div style="font-size: 30px;"> 
 						<img src="figures/group_pic/groupPic.jpg" alt="Lab group picture" title="Lab group picture" height="80%" width="100%">			
 						<p>OUR GROUP AT ASU</p>
 						</div>
 					</div>
+				</section> -->
+
+				<!-- ENDING SLIDE-->
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>		
+					<h2>THANK YOU</h2>			
 				</section>
 
 
