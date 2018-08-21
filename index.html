@@ -51,6 +51,15 @@
   			/*background-color: #2196F3;*/
   			padding: 0px;
 			}
+
+			/*Grid with one row & 2 columns*/
+			div.grid-container2 {
+  			display: grid;
+  			grid: 360px / auto auto;
+  			grid-gap: 30px;
+  			/*background-color: #2196F3;*/
+  			padding: 0px;
+			}
 			
 		</style>
 
@@ -1442,18 +1451,85 @@
 
 				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
 						<h4>Consensus in the maps of various robots</h4>
+					
 					<div class="grid-container4">
-						<div class="item1"><img src="figures/TRO_2018/worlds/mycave.png" alt="Cave domain" title="Cave domain" height="100%" width="100%"></div>
-						<div class="item2"><img src="figures/TRO_2018/worlds/plain.png" alt="plain domain" title="plain domain" height="100%" width="100%"></div>
-						<div class="item3"><img src="figures/TRO_2018/worlds/autolab.png" alt="autolab" title="autolab" height="100%" width="100%"></div>
-						<div class="item4"><img src="figures/TRO_2018/worlds/frieburg.png" alt="University of Frieburg" title="University of Frieburg"  height="100%" width="100%"></div>
+						<div class="item1"><img src="figures/TRO_2018/consensus/_Qt_3600_Rs_50_Tr_1__Robot1.png" alt="Map of Robot 1" title="Map of Robot 1" height="100%" width="100%"><figcaption><p style="font-size: 25px">Robot 1</p></figcaption></div>
+						<div class="item2"><img src="figures/TRO_2018/consensus/_Qt_3600_Rs_50_Tr_1__Robot4.png" alt="Map of Robot 4" title="Map of Robot 4" height="100%" width="100%"><figcaption><p style="font-size: 25px">Robot 4</p></figcaption></div>
+						<div class="item3"><img src="figures/TRO_2018/consensus/_Qt_3600_Rs_50_Tr_1__Robot8.png" alt="Map of Robot 8" title="Map of Robot 8" height="100%" width="100%"><figcaption><p style="font-size: 25px">Robot 8</p></figcaption></div>
+						<div class="item4"><img src="figures/TRO_2018/consensus/_Qt_3600_Rs_50_Tr_1__Robot9.png" alt="Map of Robot 9" title="Map of Robot 9"  height="100%" width="100%"><figcaption><p style="font-size: 25px">Robot 9</p></figcaption></div>
+					</div>
+
+					
+
+					<div class="grid-container4" style="position: relative; top: 80px">
+						<div class="item1"><img src="figures/TRO_2018/consensus/_Qt_3600_Rs_50_Tr_1__Robot12.png" alt="Map of Robot 12" title="Map of Robot 12" height="100%" width="100%"><figcaption><p style="font-size: 25px">Robot 12</p></figcaption></div>
+						<div class="item2"><img src="figures/TRO_2018/consensus/_Qt_3600_Rs_50_Tr_1__Robot14.png" alt="Map of Robot 14" title="Map of Robot 14" height="100%" width="100%"><figcaption><p style="font-size: 25px">Robot 14</p></figcaption></div>
+						<div class="item3"><img src="figures/TRO_2018/consensus/_Qt_3600_Rs_50_Tr_1__Robot37.png" alt="Map of Robot 37" title="Map of Robot 37" height="100%" width="100%"><figcaption><p style="font-size: 25px">Robot 37</p></figcaption></div>
+						<div class="item4"><img src="figures/TRO_2018/consensus/_Qt_3600_Rs_50_Tr_1__Robot45.png" alt="Map of Robot 45" title="Map of Robot 45"  height="100%" width="100%"><figcaption><p style="font-size: 25px">Robot 45</p></figcaption></div>
 					</div>
 
 				</section>
 
 
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					
+					<div style="position: absolute; left: 50px; height: 420px; width: 400px;">
+							<img src="figures/TRO_2018/coverage_consensus/Maps_from_50_robots.png" alt="Experimental setup" title="Experimental setup" height="75%" width="100%">
+							<figcaption><p style="font-size: 30px;">Consensus over the occupancy grid maps by 50 robots</p></figcaption>
+					</div>	
+					<div style="position: absolute; left: 470px; height: 420px; width: 400px;">
+							<img src="figures/TRO_2018/coverage_consensus/coverage_for_various_trails.png" alt="Experimental setup" title="Experimental setup" height="75%" width="100%">
+							<figcaption><p style="font-size: 30px;">The effect of size of swarm robots on covering domain</p></figcaption>
+					</div>	
+					
+					
+					
+				</section>
+
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<h5>Entropy</h5>
+					<div class="grid-container3">
+							<div class="item1"><img src="figures/TRO_2018/entropy/Entropy_for_mycave_percentile.png" alt="Cave" title="Cave" height="40%" width="100%"></div>
+							<!-- <figcaption><p style="font-size: 25px">Cave</p></figcaption></div> -->
+							<div class="item2"><img src="figures/TRO_2018/entropy/Entropy_for_plain_percentile.png" alt="Plain" title="Plain" height="40%" width="100%"></div>
+							<!-- <figcaption><p style="font-size: 25px">Plain</p></figcaption></div> -->
+							<div class="item3"><img src="figures/TRO_2018/entropy/Entropy_for_autolab_percentile.png" alt="Autolab" title="Autolab" height="40%" width="100%">		</div>					
+							<!-- <figcaption><p style="font-size: 25px">Floor Plan</p></figcaption></div> -->
+					</div>
+					<div style="position: absolute; top: 330px"><h5>Coverage</h5></div>
+
+					<div class="grid-container3" style="position: absolute; top: 370px">
+							
+							<div class="item1"><img src="figures/TRO_2018/coverage/coverage_for_mycave_percentile.png" alt="Cave" title="Cave" height="40%" width="100%">
+							<figcaption><p style="font-size: 25px">Cave</p></figcaption></div>
+							<div class="item2"><img src="figures/TRO_2018/coverage/coverage_for_plain_percentile.png" alt="Plain" title="Plain" height="40%" width="100%">
+							<figcaption><p style="font-size: 25px">Plain</p></figcaption></div>
+							<div class="item3"><img src="figures/TRO_2018/coverage/coverage_for_autolab_percentile.png" alt="Autolab" title="Autolab" height="40%" width="100%">							
+							<figcaption><p style="font-size: 25px">Floor Plan</p></figcaption></div>
+					</div>
+				</section>
 
 
+				<!-- Simulation video -->
+				<section>
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<h3>Experiment Video</h3>
+					<video width = "960px" height = "400px" controls>
+							<source src="videos/cut.mp4" type="video/mp4"/>
+					</video>	
+				</section>
+
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<div class="grid-container2">
+							
+							<div class="item1"><img src="figures/TRO_2018/experiments/coverage.png" alt="coverage" title="coverage" height="70%" width="100%">
+							<figcaption><p style="font-size: 25px">Coverage</p></figcaption></div>
+							<div class="item2"><img src="figures/TRO_2018/experiments/entropy.png" alt="entropy" title="entropy" height="70%" width="100%">
+							<figcaption><p style="font-size: 25px">Entropy</p></figcaption></div>
+					</div>
+				</section>
+
+				</section>
 
 
 
@@ -1860,10 +1936,33 @@
 				</section> -->
 
 				<!-- ENDING SLIDE-->
-				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>		
-					<h2>THANK YOU</h2>			
+				<!-- Publications -->
+
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<h3>Publications</h3>
+					<div style="position: absolute; width: 960px; height: 450px; left: 0px; font-size: 25px;"> 
+					<p align="left"><span style="font-weight: bold; color: #2375EF;">Ragesh K. Ramachandran</span>, Karthik Elamvazhuthi, and Spring Berman. An optimal control approach to mapping GPS-denied environments using a stochastic robotic swarm. In Int’l. Symp. on Robotics Research (ISRR), 2015.</p>
+					<p align="left"><span style="font-weight: bold; color: #2375EF;">Ragesh K. Ramachandran</span>, Sean Wilson, and Spring Berman. A probabilistic topological approach to feature identification using a stochastic robotic swarm. In To appear in the Int’l. Symposium on Distributed Autonomous Robotic Systems (DARS), 2016.</p>
+					<p align="left"><span style="font-weight: bold; color: #2375EF;">Ragesh K. Ramachandran</span>, Sean. Wilson, and Spring. Berman. A probabilistic approach to automated construction of topological maps using a stochastic robotic swarm. IEEE Robotics and Automation Letters, 2(2):616–623, April 2017.</p>
+					<p align="left"><span style="font-weight: bold; color: #2375EF;">Ragesh K. Ramachandran</span> and Spring Berman. The effect of communication topology on scalar field estimation by large networks with partially accessible measurements. In Proceedings of the 2017 American Control Conference (ACC), Seattle, WA, USA, May 24–26, 2017.</p>
+					</div>
 				</section>
 
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<h3>Publications</h3>
+					<div style="position: absolute; width: 960px; height: 450px; left: 0px; font-size: 25px;"> 
+						<p align="left"><span style="font-weight: bold; color: #2375EF;">Ragesh K. Ramachandran</span> and Spring Berman. Automated Construction of Metric Maps using a Stochastic Robotic Swarm Leveraging Received Signal Strength. In revision for IEEE Transactions on Robotics, 2018.</p>
+						<p align="left"><span style="font-weight: bold; color: #2375EF;">Ragesh K. Ramachandran</span>, Zahi Kakish, and Spring Berman. Information correlated l&eacutevy walk exploration and distributed mapping using a swarm of robots. In preparation for IEEE Transactions on Robotics, 2018.</p>
+					</div>
+				</section>
+
+				
+				<!-- Thank you -->
+
+				<section data-background-image="figures/background/black_maroon.png" data-background-size="100% 100%" data-background-interactive>
+					<h1>Thank You</h1>
+					<h2>Questions</h2>
+				</section>								
 
 
 			</div>
